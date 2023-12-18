@@ -1462,6 +1462,7 @@ TALISMAN_DEV_CONFIG = {
             "data:",
             "https://apachesuperset.gateway.scarf.sh",
             "https://static.scarf.sh/",
+            "https://*.tile.openstreetmap.org",
         ],
         "worker-src": ["'self'", "blob:"],
         "connect-src": [

@@ -24,13 +24,16 @@ import EventFlowChartPlugin from '@superset-ui/legacy-plugin-chart-event-flow';
 import HeatmapChartPlugin from '@superset-ui/legacy-plugin-chart-heatmap';
 import HistogramChartPlugin from '@superset-ui/legacy-plugin-chart-histogram';
 import HorizonChartPlugin from '@superset-ui/legacy-plugin-chart-horizon';
+import IndicatorChartPlugin from '@chart-plugins/superset-indicator-chart'
 import MapBoxChartPlugin from '@superset-ui/legacy-plugin-chart-map-box';
 import PairedTTestChartPlugin from '@superset-ui/legacy-plugin-chart-paired-t-test';
 import ParallelCoordinatesChartPlugin from '@superset-ui/legacy-plugin-chart-parallel-coordinates';
 import PartitionChartPlugin from '@superset-ui/legacy-plugin-chart-partition';
 import RoseChartPlugin from '@superset-ui/legacy-plugin-chart-rose';
 import SankeyChartPlugin from '@superset-ui/legacy-plugin-chart-sankey';
+import ScatterMapChartPlugin from '@superset-custom/plugin-chart-scatter-map';
 import SunburstChartPlugin from '@superset-ui/legacy-plugin-chart-sunburst';
+import { SupersetHandsontablePlugin } from 'superset-handsontable-plugin';
 import TableChartPlugin from '@superset-ui/plugin-chart-table';
 import { WordCloudChartPlugin } from '@superset-ui/plugin-chart-word-cloud';
 import WorldMapChartPlugin from '@superset-ui/legacy-plugin-chart-world-map';
@@ -118,6 +121,7 @@ export default class MainPreset extends Preset {
         new HeatmapChartPlugin().configure({ key: 'heatmap' }),
         new HistogramChartPlugin().configure({ key: 'histogram' }),
         new HorizonChartPlugin().configure({ key: 'horizon' }),
+        new IndicatorChartPlugin().configure({ key: 'indicator' }),
         new LineChartPlugin().configure({ key: 'line' }),
         new MapBoxChartPlugin().configure({ key: 'mapbox' }),
         new PairedTTestChartPlugin().configure({ key: 'paired_ttest' }),
@@ -127,7 +131,9 @@ export default class MainPreset extends Preset {
         new PivotTableChartPluginV2().configure({ key: 'pivot_table_v2' }),
         new RoseChartPlugin().configure({ key: 'rose' }),
         new SankeyChartPlugin().configure({ key: 'sankey' }),
+        new ScatterMapChartPlugin().configure({ key: 'scatter-map' }).register(),
         new SunburstChartPlugin().configure({ key: 'sunburst' }),
+        new SupersetHandsontablePlugin().configure({ key: 'superset-handsontable-plugin' }),
         new TableChartPlugin().configure({ key: 'table' }),
         new TimePivotChartPlugin().configure({ key: 'time_pivot' }),
         new TimeTableChartPlugin().configure({ key: 'time_table' }),
