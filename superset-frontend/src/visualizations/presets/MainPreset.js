@@ -30,9 +30,7 @@ import ParallelCoordinatesChartPlugin from '@superset-ui/legacy-plugin-chart-par
 import PartitionChartPlugin from '@superset-ui/legacy-plugin-chart-partition';
 import RoseChartPlugin from '@superset-ui/legacy-plugin-chart-rose';
 import SankeyChartPlugin from '@superset-ui/legacy-plugin-chart-sankey';
-import ScatterMapChartPlugin from '@superset-custom/plugin-chart-scatter-map';
 import SunburstChartPlugin from '@superset-ui/legacy-plugin-chart-sunburst';
-import { SupersetHandsontablePlugin } from 'superset-handsontable-plugin';
 import TableChartPlugin from '@superset-ui/plugin-chart-table';
 import { WordCloudChartPlugin } from '@superset-ui/plugin-chart-word-cloud';
 import WorldMapChartPlugin from '@superset-ui/legacy-plugin-chart-world-map';
@@ -83,6 +81,9 @@ import { HandlebarsChartPlugin } from '@superset-ui/plugin-chart-handlebars';
 import FilterBoxChartPlugin from '../FilterBox/FilterBoxChartPlugin';
 import TimeTableChartPlugin from '../TimeTable';
 
+// custom stuff
+import ScatterMapChartPlugin from '@superset-custom/plugin-chart-scatter-map';
+import { SupersetHandsontablePlugin } from 'superset-handsontable-plugin';
 import {StatisticChartPlugin} from '@sspingme/superset-ui-plugin-statistic';
 
 
@@ -132,9 +133,7 @@ export default class MainPreset extends Preset {
         new PivotTableChartPluginV2().configure({ key: 'pivot_table_v2' }),
         new RoseChartPlugin().configure({ key: 'rose' }),
         new SankeyChartPlugin().configure({ key: 'sankey' }),
-        new ScatterMapChartPlugin().configure({ key: 'scatter-map' }).register(),
         new SunburstChartPlugin().configure({ key: 'sunburst' }),
-        new SupersetHandsontablePlugin().configure({ key: 'superset-handsontable-plugin' }),
         new TableChartPlugin().configure({ key: 'table' }),
         new TimePivotChartPlugin().configure({ key: 'time_pivot' }),
         new TimeTableChartPlugin().configure({ key: 'time_table' }),
@@ -175,9 +174,12 @@ export default class MainPreset extends Preset {
         new EchartsBubbleChartPlugin().configure({ key: 'bubble_v2' }),
         ...experimentalplugins,
 
+        // custom stuff...
+        new ScatterMapChartPlugin().configure({ key: 'scatter-map' }).register(),
+        new SupersetHandsontablePlugin().configure({ key: 'superset-handsontable-plugin' }),
         new StatisticChartPlugin()
-  .configure({ key: 'superset-ui-plugin-statistic' })
-  .register()
+          .configure({ key: 'superset-ui-plugin-statistic' })
+          .register(),
       ],
     });
   }
