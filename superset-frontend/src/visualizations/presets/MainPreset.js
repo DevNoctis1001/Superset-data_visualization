@@ -83,6 +83,9 @@ import { HandlebarsChartPlugin } from '@superset-ui/plugin-chart-handlebars';
 import FilterBoxChartPlugin from '../FilterBox/FilterBoxChartPlugin';
 import TimeTableChartPlugin from '../TimeTable';
 
+import {StatisticChartPlugin} from '@sspingme/superset-ui-plugin-statistic';
+
+
 export default class MainPreset extends Preset {
   constructor() {
     const experimentalplugins = isFeatureEnabled(
@@ -171,6 +174,10 @@ export default class MainPreset extends Preset {
         new HandlebarsChartPlugin().configure({ key: 'handlebars' }),
         new EchartsBubbleChartPlugin().configure({ key: 'bubble_v2' }),
         ...experimentalplugins,
+
+        new StatisticChartPlugin()
+  .configure({ key: 'superset-ui-plugin-statistic' })
+  .register()
       ],
     });
   }
