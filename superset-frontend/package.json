@@ -90,6 +90,7 @@
     "@reduxjs/toolkit": "^1.9.3",
     "@scarf/scarf": "^1.3.0",
     "@sspingme/superset-ui-plugin-statistic": "^0.2.0",
+    "@stanislav.domb/several-dimension-multi-line-chart": "^0.1.11",
     "@superset-custom/plugin-chart-scatter-map": "^0.2.3",
     "@superset-ui/chart-controls": "file:./packages/superset-ui-chart-controls",
     "@superset-ui/core": "file:./packages/superset-ui-core",

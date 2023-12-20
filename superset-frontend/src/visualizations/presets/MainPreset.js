@@ -85,6 +85,7 @@ import TimeTableChartPlugin from '../TimeTable';
 import ScatterMapChartPlugin from '@superset-custom/plugin-chart-scatter-map';
 import { SupersetHandsontablePlugin } from 'superset-handsontable-plugin';
 import {StatisticChartPlugin} from '@sspingme/superset-ui-plugin-statistic';
+import { SeveralDimensionMultiLineChartPlugin } from '@stanislav.domb/several-dimension-multi-line-chart';
 
 
 export default class MainPreset extends Preset {
@@ -180,6 +181,9 @@ export default class MainPreset extends Preset {
         new StatisticChartPlugin()
           .configure({ key: 'superset-ui-plugin-statistic' })
           .register(),
+        new SeveralDimensionMultiLineChartPlugin().configure({
+          key: 'several-dimension-multi-line-chart',
+          }),
       ],
     });
   }
