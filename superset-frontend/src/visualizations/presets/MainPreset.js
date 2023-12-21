@@ -37,7 +37,7 @@ import WorldMapChartPlugin from '@superset-ui/legacy-plugin-chart-world-map';
 import {
   AreaChartPlugin,
   BarChartPlugin,
-  BubbleChartPlugin,
+  // BubbleChartPlugin,
   BulletChartPlugin,
   CompareChartPlugin,
   DistBarChartPlugin,
@@ -77,7 +77,7 @@ import {
   GroupByFilterPlugin,
 } from 'src/filters/components';
 import { PivotTableChartPlugin as PivotTableChartPluginV2 } from '@superset-ui/plugin-chart-pivot-table';
-import { HandlebarsChartPlugin } from '@superset-ui/plugin-chart-handlebars';
+// import { HandlebarsChartPlugin } from '@superset-ui/plugin-chart-handlebars';
 import FilterBoxChartPlugin from '../FilterBox/FilterBoxChartPlugin';
 import TimeTableChartPlugin from '../TimeTable';
 
@@ -86,6 +86,10 @@ import ScatterMapChartPlugin from '@superset-custom/plugin-chart-scatter-map';
 import { SupersetHandsontablePlugin } from 'superset-handsontable-plugin';
 import {StatisticChartPlugin} from '@sspingme/superset-ui-plugin-statistic';
 import { SeveralDimensionMultiLineChartPlugin } from '@stanislav.domb/several-dimension-multi-line-chart';
+// import WaterfallChartPlugin from '@superset-custom/plugin-chart-waterfall';
+import WaterfallChartPlugin from '@superset-viz-plugins/plugin-chart-waterfall';
+import ComposedChartPlugin from '@scaling-robot-plugins/plugin-chart-composed';
+import BubbleChartPlugin from '@superset-viz-plugins/plugin-chart-bubble';
 
 
 export default class MainPreset extends Preset {
@@ -105,7 +109,7 @@ export default class MainPreset extends Preset {
         new BigNumberChartPlugin().configure({ key: 'big_number' }),
         new BigNumberTotalChartPlugin().configure({ key: 'big_number_total' }),
         new EchartsBoxPlotChartPlugin().configure({ key: 'box_plot' }),
-        new BubbleChartPlugin().configure({ key: 'bubble' }),
+        // new BubbleChartPlugin().configure({ key: 'bubble' }),
         new BulletChartPlugin().configure({ key: 'bullet' }),
         new CalendarChartPlugin().configure({ key: 'cal_heatmap' }),
         new ChordChartPlugin().configure({ key: 'chord' }),
@@ -171,7 +175,7 @@ export default class MainPreset extends Preset {
         new TimeGrainFilterPlugin().configure({ key: 'filter_timegrain' }),
         new EchartsTreeChartPlugin().configure({ key: 'tree_chart' }),
         new EchartsSunburstChartPlugin().configure({ key: 'sunburst_v2' }),
-        new HandlebarsChartPlugin().configure({ key: 'handlebars' }),
+        // new HandlebarsChartPlugin().configure({ key: 'handlebars' }),
         new EchartsBubbleChartPlugin().configure({ key: 'bubble_v2' }),
         ...experimentalplugins,
 
@@ -184,6 +188,15 @@ export default class MainPreset extends Preset {
         new SeveralDimensionMultiLineChartPlugin().configure({
           key: 'several-dimension-multi-line-chart',
           }),
+        new WaterfallChartPlugin()
+          .configure({ key: 'nielsen-oss-waterfall' })
+          .register(),
+        new ComposedChartPlugin()
+          .configure({ key: 'amitmiran137-composed' })
+          .register(),
+        new BubbleChartPlugin()
+          .configure({ key: 'bubble' })
+          .register()
       ],
     });
   }
