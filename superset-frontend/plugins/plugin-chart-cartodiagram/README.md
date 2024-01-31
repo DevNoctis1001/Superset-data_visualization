@@ -28,7 +28,7 @@ Configuring the map: For the map, an arbitrary number of background layers (WMS,
 
 ### Usage
 
-The plugin is configured in `superset-frontend/src/visualizations/presets/MainPreset.js`. 
+The plugin is configured in `superset-frontend/src/visualizations/presets/MainPreset.js`.
 
 ```js
 import {
