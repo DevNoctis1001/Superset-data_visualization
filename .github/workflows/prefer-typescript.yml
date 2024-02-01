@@ -10,6 +10,12 @@ on:
     types: [synchronize, opened, reopened, ready_for_review]
     paths:
       - "superset-frontend/src/**"
+
+# cancel previous workflow jobs for PRs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   prefer_typescript:
     if: github.ref == 'ref/heads/master' && github.event_name == 'pull_request'
@@ -42,7 +48,7 @@ jobs:
               ) | join("\n")
             ' ${HOME}/files_added.json
           }
-          echo ::set-output name=js_files_added::$(js_files_added)
+          echo "js_files_added=$(js_files_added)" >> $GITHUB_OUTPUT
 
       - if: steps.check.outputs.js_files_added
         name: Add Comment to PR
